@@ -20,7 +20,7 @@ public class Test {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int seq;
-	
+
 	private String id;
 	private String subject;
 	private String contents;
