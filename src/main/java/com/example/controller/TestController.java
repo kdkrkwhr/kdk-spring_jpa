@@ -36,7 +36,7 @@ public class TestController {
 		List<Test> testList = testRepository.findAll();
 
 		return testList;
-	}
+	}  
 
 	// 등록 API
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
