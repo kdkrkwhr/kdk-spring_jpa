@@ -22,7 +22,7 @@ public class TestController {
 	private TestRepository testRepository;
 
 	// 특정 조회 API
-	@RequestMapping(value = "/search/{seq}", method = RequestMethod.GET)
+	@RequestMapping(value = "/test/search/{seq}", method = RequestMethod.GET)
 	public Test getTestById(@PathVariable("seq") int seq) {
 
 		Test testModel = testRepository.findById(seq).get();
@@ -31,7 +31,7 @@ public class TestController {
 	}
 
 	// 전체 조회 API
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/test/search", method = RequestMethod.GET)
 	public List<Test> getTests() {
 
 		List<Test> testList = testRepository.findAll();
@@ -40,7 +40,7 @@ public class TestController {
 	}
 
 	// 등록 API
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/test/add", method = RequestMethod.POST)
 	public String postTest(@RequestBody Test reqBody) {
 		
 		if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
@@ -55,14 +55,13 @@ public class TestController {
 		} catch (Exception e) {
 
 			return e.getMessage();
-
 		}
 
 		return SUCCESS;
 	}
 
 	// 수정 API
-	@RequestMapping(value = "/edit/{seq}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/test/edit/{seq}", method = RequestMethod.PUT)
 	public String updateTest(@PathVariable("seq") int seq, @RequestBody Test reqBody) {
 		
 		if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
@@ -80,14 +79,13 @@ public class TestController {
 		} catch (Exception e) {
 
 			return e.getMessage();
-
 		}
 
 		return SUCCESS;
 	}
 
 	// 삭제 API
-	@RequestMapping(value = "/delete/{seq}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/test/delete/{seq}", method = RequestMethod.DELETE)
 	public String deleteTestById(@PathVariable("seq") int seq) {
 
 		try {
@@ -97,18 +95,32 @@ public class TestController {
 		} catch (Exception e) {
 
 			return e.getMessage();
-
 		}
 
 		return SUCCESS;
 	}
-	
+
 	// 데이터 카운트 API 
-	@RequestMapping(value = "/cnt", method = RequestMethod.GET)
+	@RequestMapping(value = "/test/cnt", method = RequestMethod.GET)
 	public int countTest() {
 
-		int cnt = testRepository.dataCnt();
+		int dataCnt = testRepository.dataCnt();
 
-		return cnt;
+		return dataCnt;
+	}
+
+	// 로그인 API
+	@RequestMapping(value = "/test/login", method = RequestMethod.POST)
+	public String loginTest(@RequestBody Test reqBody) {
+		String message = "";
+
+		int loginConfirm = testRepository.loginConfirm();
+		if (0 < loginConfirm) {
+			message = "LOGIN SUCCESS";
+		} else {
+			message = "LOGIN FAIL";
+		}
+
+		return message;
 	}
 }

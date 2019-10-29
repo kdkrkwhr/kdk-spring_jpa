@@ -12,4 +12,6 @@ public interface TestRepository extends JpaRepository<Test, Integer> {
 	@Query(value = "SELECT COUNT(*) FROM sample.test", nativeQuery = true)
 	int dataCnt();
 
+	@Query(value = "SELECT COUNT(*) FROM sample.test WHERE ", nativeQuery = true)
+	int loginConfirm();
 }
