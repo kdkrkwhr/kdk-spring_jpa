@@ -21,12 +21,13 @@ public class TestController {
 	@Autowired
 	private TestRepository testRepository;
 
-	// 단일 조회 API
-	@RequestMapping(value = "/search/{id}", method = RequestMethod.GET)
-	public Test getTestById(@PathVariable("id") int id) {
+	// 특정 조회 API
+	@RequestMapping(value = "/search/{seq}", method = RequestMethod.GET)
+	public Test getTestById(@PathVariable("seq") int seq) {
 
-		return testRepository.findById(id).get();
+		Test testModel = testRepository.findById(seq).get();
 
+		return testModel;
 	}
 
 	// 전체 조회 API
@@ -36,17 +37,17 @@ public class TestController {
 		List<Test> testList = testRepository.findAll();
 
 		return testList;
-	}  
+	}
 
 	// 등록 API
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String postTest(@RequestBody Test reqBody) {
+		
+		if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
+			return NO_VALUE_ERROR;
+		}
 
 		try {
-
-			if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
-				return NO_VALUE_ERROR;
-			}
 
 			testRepository.save(Test.builder().id(reqBody.getId()).subject(reqBody.getSubject())
 					.contents(reqBody.getContents()).build());
@@ -61,20 +62,20 @@ public class TestController {
 	}
 
 	// 수정 API
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
-	public String updateTest(@PathVariable("id") int id, @RequestBody Test reqBody) {
+	@RequestMapping(value = "/edit/{seq}", method = RequestMethod.PUT)
+	public String updateTest(@PathVariable("seq") int seq, @RequestBody Test reqBody) {
+		
+		if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
+			return NO_VALUE_ERROR;
+		}
 
 		try {
 
-			if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
-				return NO_VALUE_ERROR;
-			}
-
-			Test test = testRepository.findById(id).get();
-			test.setId(reqBody.getId());
-			test.setSubject(reqBody.getSubject());
-			test.setContents(reqBody.getContents());
-			testRepository.save(test);
+			Test testModel = testRepository.findById(seq).get();
+			testModel.setId(reqBody.getId());
+			testModel.setSubject(reqBody.getSubject());
+			testModel.setContents(reqBody.getContents());
+			testRepository.save(testModel);
 
 		} catch (Exception e) {
 
@@ -86,12 +87,12 @@ public class TestController {
 	}
 
 	// 삭제 API
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-	public String deleteTestById(@PathVariable("id") int id) {
+	@RequestMapping(value = "/delete/{seq}", method = RequestMethod.DELETE)
+	public String deleteTestById(@PathVariable("seq") int seq) {
 
 		try {
 
-			testRepository.deleteById(id);
+			testRepository.deleteById(seq);
 
 		} catch (Exception e) {
 
@@ -100,5 +101,14 @@ public class TestController {
 		}
 
 		return SUCCESS;
+	}
+	
+	// 데이터 카운트 API 
+	@RequestMapping(value = "/cnt", method = RequestMethod.GET)
+	public int countTest() {
+
+		int cnt = testRepository.dataCnt();
+
+		return cnt;
 	}
 }
