@@ -22,35 +22,39 @@ public class TestController {
 	private TestRepository testRepository;
 
 	// 단일 조회 API
-	@RequestMapping(value = "/test/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/search/{id}", method = RequestMethod.GET)
 	public Test getTestById(@PathVariable("id") int id) {
-		System.out.println("Find : " + id);
+
 		return testRepository.findById(id).get();
+
 	}
 
 	// 전체 조회 API
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public List<Test> getTests() {
+
 		List<Test> testList = testRepository.findAll();
-		for (Test test : testList) {
-			System.out.println("ID : " + test.getId());
-		}
-		System.out.println("Find ALL");
+
 		return testList;
 	}
 
 	// 등록 API
-	@RequestMapping(value = "/test", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String postTest(@RequestBody Test reqBody) {
-		if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
-			return "값 을 넣어주세요.";
-		}
+
 		try {
+
+			if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
+				return "값 을 넣어주세요.";
+			}
+
 			testRepository.save(Test.builder().id(reqBody.getId()).subject(reqBody.getSubject())
 					.contents(reqBody.getContents()).build());
 
 		} catch (Exception e) {
-			return "INSERT ERRRR";
+
+			return e.getMessage();
+
 		}
 
 		return "INSERT SUCCESS";
@@ -61,6 +65,11 @@ public class TestController {
 	public String updateTest(@PathVariable("id") int id, @RequestBody Test reqBody) {
 
 		try {
+
+			if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
+				return "값 을 넣어주세요.";
+			}
+
 			Test test = testRepository.findById(id).get();
 			test.setId(reqBody.getId());
 			test.setSubject(reqBody.getSubject());
@@ -68,9 +77,28 @@ public class TestController {
 			testRepository.save(test);
 
 		} catch (Exception e) {
+
 			return e.getMessage();
+
 		}
 
 		return "UPDATE SUCCESS";
+	}
+	
+	// 삭제 API
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	public String deleteTestById(@PathVariable("id") int id) {
+
+		try {
+
+			testRepository.deleteById(id);
+
+		} catch (Exception e) {
+
+			return e.getMessage();
+
+		}
+
+		return "DELETE SUCCESS";
 	}
 }
