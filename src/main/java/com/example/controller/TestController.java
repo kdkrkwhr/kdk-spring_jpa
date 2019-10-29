@@ -3,10 +3,7 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +14,9 @@ import com.example.repository.TestRepository;
 
 @RestController
 public class TestController {
+
+	static final String SUCCESS = "SUCCESS";
+	static final String NO_VALUE_ERROR = "NO VALUE";
 
 	@Autowired
 	private TestRepository testRepository;
@@ -45,7 +45,7 @@ public class TestController {
 		try {
 
 			if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
-				return "값 을 넣어주세요.";
+				return NO_VALUE_ERROR;
 			}
 
 			testRepository.save(Test.builder().id(reqBody.getId()).subject(reqBody.getSubject())
@@ -57,7 +57,7 @@ public class TestController {
 
 		}
 
-		return "INSERT SUCCESS";
+		return SUCCESS;
 	}
 
 	// 수정 API
@@ -67,7 +67,7 @@ public class TestController {
 		try {
 
 			if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
-				return "값 을 넣어주세요.";
+				return NO_VALUE_ERROR;
 			}
 
 			Test test = testRepository.findById(id).get();
@@ -82,9 +82,9 @@ public class TestController {
 
 		}
 
-		return "UPDATE SUCCESS";
+		return SUCCESS;
 	}
-	
+
 	// 삭제 API
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public String deleteTestById(@PathVariable("id") int id) {
@@ -99,6 +99,6 @@ public class TestController {
 
 		}
 
-		return "DELETE SUCCESS";
+		return SUCCESS;
 	}
 }
