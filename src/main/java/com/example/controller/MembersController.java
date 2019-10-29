@@ -100,5 +100,12 @@ public class MembersController {
 
 		return SUCCESS;
 	}
-	
+
+	@RequestMapping(value= "members/check/{no}", method = RequestMethod.GET)
+	public boolean exMember(@PathVariable("no") int no) {
+
+		boolean idCheck = membersRepository.existsById(no);
+
+		return idCheck;
+	}
 }
