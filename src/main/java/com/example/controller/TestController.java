@@ -42,7 +42,9 @@ public class TestController {
 	// 등록 API
 	@RequestMapping(value = "/test", method = RequestMethod.POST)
 	public String postTest(@RequestBody Test reqBody) {
-
+		if ((reqBody.getId() == null) || (reqBody.getSubject() == null) || (reqBody.getContents() == null)) {
+			return "값 을 넣어주세요.";
+		}
 		try {
 			testRepository.save(Test.builder().id(reqBody.getId()).subject(reqBody.getSubject())
 					.contents(reqBody.getContents()).build());
@@ -66,7 +68,7 @@ public class TestController {
 			testRepository.save(test);
 
 		} catch (Exception e) {
-			return "UPDATE ERROR";
+			return e.getMessage();
 		}
 
 		return "UPDATE SUCCESS";
