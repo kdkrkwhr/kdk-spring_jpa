@@ -187,37 +187,35 @@
 				<div class="col-12">
 					<div class="forms">
 						<h4>간편 회원 가입</h4>
-						<form method="get">
 							<div class="row">
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="text"
-											placeholder="Name">
+										<input type="text" class="form-control" id="name"
+											placeholder="Name" name="name">
 									</div>
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="email" class="form-control" id="email"
+										<input type="email" class="form-control" id="email" name="email"
 											placeholder="Email">
 									</div>
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="phone"
+										<input type="text" class="form-control" id="phone" name="phone"
 											placeholder="Phone">
 									</div>
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="site"
-											placeholder="Site">
+										<input type="text" class="form-control" id="address" name="address"
+											placeholder="address">
 									</div>
 								</div>
 								<div class="col-12">
-									<button class="btn clever-btn w-100">Send Message</button>
+									<input type="button" id="insertBtn" name="insertBtn" class="btn clever-btn w-100" value="회원가입"/>
 								</div>
 							</div>
-						</form>
 					</div>
 				</div>
 			</div>

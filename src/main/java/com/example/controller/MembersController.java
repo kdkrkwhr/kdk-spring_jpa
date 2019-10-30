@@ -61,7 +61,7 @@ public class MembersController {
 
 	@RequestMapping(value = "/api/add", method = RequestMethod.POST)
 	public ResponseEntity<String> addMemberApi(@RequestBody Members reqBody) {
-
+		System.out.println("reqBody.getEmail() : " + reqBody.getEmail());
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
 
