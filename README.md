@@ -1,6 +1,6 @@
 # Spring Boot Project      
    RESTFull API    
-   M.V.C
+   MVC Model
 
 
 Kim Dong-gi
@@ -17,5 +17,5 @@ Kim Dong-gi
 + jQuery
 
 ### **Tool**  
-+ Spring Tools  
++ STS(Spring Tool Suite) v3.9.8
 
