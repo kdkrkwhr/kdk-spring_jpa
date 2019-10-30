@@ -13,11 +13,11 @@
 <hr/>
 <c:if test = "${not empty memberList }">
 	<c:forEach var="member" items="${memberList }">
-		No. ${member.no } <br/> PHONE: ${member.phone }<hr/>
+		No. ${member.no } <br/> NAME: ${member.name}<hr/>
 	</c:forEach>
 </c:if>
 <c:if test = "${not empty member }">
-	특정 조회 : ${member.no } <br/> 전화번호 : ${member.phone0 }<hr/>
+	특정 조회 : ${member.no } <br/> 전화번호 : ${member.name }<hr/>
 </c:if>
 </body>
 </html>

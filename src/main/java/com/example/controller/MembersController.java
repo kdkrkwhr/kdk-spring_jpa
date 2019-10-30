@@ -60,12 +60,12 @@ public class MembersController {
 	}
 
 	@RequestMapping(value = "/api/add", method = RequestMethod.POST)
-	public ResponseEntity<?> addMemberApi(@RequestBody Members reqBody) {
+	public ResponseEntity<String> addMemberApi(@RequestBody Members reqBody) {
 
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
 
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
 
 		try {
@@ -75,19 +75,19 @@ public class MembersController {
 
 		} catch (Exception e) {
 
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
-		System.out.println("1) reqBody.name : " + reqBody.getName());
-		return new ResponseEntity<>(HttpStatus.OK);
+
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/api/edit/{no}", method = RequestMethod.PUT)
-	public String editMemberApi(@PathVariable("no") int no, @RequestBody Members reqBody) {
+	public ResponseEntity<String> editMemberApi(@PathVariable("no") int no, @RequestBody Members reqBody) {
 
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
 
-			return NO_VALUE_ERROR;
+			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
 
 		try {
@@ -102,14 +102,14 @@ public class MembersController {
 
 		} catch (Exception e) {
 
-			return e.getMessage();
+			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
 
-		return SUCCESS;
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/api/delete/{no}", method = RequestMethod.DELETE)
-	public String deleteMemberApi(@PathVariable("no") int no) {
+	public ResponseEntity<String> deleteMemberApi(@PathVariable("no") int no) {
 
 		try {
 
@@ -117,10 +117,10 @@ public class MembersController {
 
 		} catch (Exception e) {
 
-			return e.getMessage();
+			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
 
-		return SUCCESS;
+		return new ResponseEntity<>(SUCCESS, HttpStatus.NOT_FOUND);
 	}
 
 	// 파일 분할 예정
