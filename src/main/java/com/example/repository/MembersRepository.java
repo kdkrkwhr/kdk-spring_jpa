@@ -8,6 +8,6 @@ import com.example.model.Members;
 
 @Repository
 public interface MembersRepository extends JpaRepository<Members, Integer> {
-	@Query(value = "SELECT COUNT(no) FROM sample.members", nativeQuery = true)
+	@Query(value = "SELECT COUNT(no) FROM dk.members", nativeQuery = true)
 	int memberCount();
 }

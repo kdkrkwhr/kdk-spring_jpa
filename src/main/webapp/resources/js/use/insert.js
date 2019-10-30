@@ -1,0 +1,6 @@
+/**
+ * MEMBER INSERT
+ */
+$().ready(function() {
+
+});

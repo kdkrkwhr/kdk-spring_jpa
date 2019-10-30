@@ -13,6 +13,7 @@
 	<artifactId>rest-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rest-api</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
