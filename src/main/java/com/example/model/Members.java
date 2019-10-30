@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.example.model.Test.TestBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,10 +28,12 @@ public class Members {
 
 	@Builder
 	public Members(String email, String pwd, String name, String phone, String address) {
+
 		this.email = email;
 		this.pwd = pwd;
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+
 	}
 }

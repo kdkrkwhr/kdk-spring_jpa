@@ -60,12 +60,12 @@ public class MembersController {
 	}
 
 	@RequestMapping(value = "/api/add", method = RequestMethod.POST)
-	public String addMemberApi(@RequestBody Members reqBody) {
+	public ResponseEntity<?> addMemberApi(@RequestBody Members reqBody) {
 
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
 
-			return NO_VALUE_ERROR;
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 
 		try {
@@ -75,10 +75,10 @@ public class MembersController {
 
 		} catch (Exception e) {
 
-			return e.getMessage();
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-
-		return SUCCESS;
+		System.out.println("1) reqBody.name : " + reqBody.getName());
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/api/edit/{no}", method = RequestMethod.PUT)
