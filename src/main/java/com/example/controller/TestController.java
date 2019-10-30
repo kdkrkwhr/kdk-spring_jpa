@@ -108,19 +108,4 @@ public class TestController {
 
 		return dataCnt;
 	}
-
-	// 로그인 API
-	@RequestMapping(value = "/test/login", method = RequestMethod.POST)
-	public String loginTest(@RequestBody Test reqBody) {
-		String message = "";
-
-		int loginConfirm = testRepository.loginConfirm();
-		if (0 < loginConfirm) {
-			message = "LOGIN SUCCESS";
-		} else {
-			message = "LOGIN FAIL";
-		}
-
-		return message;
-	}
 }

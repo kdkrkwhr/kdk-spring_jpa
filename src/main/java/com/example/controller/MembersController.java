@@ -3,16 +3,20 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.Members;
 import com.example.repository.MembersRepository;
 
-@RestController
+@Controller
+@RequestMapping("/members")
 public class MembersController {
 
 	static final String SUCCESS = "SUCCESS";
@@ -21,24 +25,42 @@ public class MembersController {
 	@Autowired
 	private MembersRepository membersRepository;
 
-	@RequestMapping(value = "/members/search/{no}", method = RequestMethod.GET)
-	public Members searchMemberById(@PathVariable("no") int no) {
+	@RequestMapping(value = "/api/search/{no}", method = RequestMethod.GET)
+	public ResponseEntity<Members> searchMemberByIdApi(@PathVariable("no") int no) {
 
 		Members membersModel = membersRepository.findById(no).get();
 
-		return membersModel;
+		return new ResponseEntity<>(membersModel, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/members/search", method = RequestMethod.GET)
-	public List<Members> searchMembers() {
+	@RequestMapping(value = "/search/{no}", method = RequestMethod.GET)
+	public String searchMemberById(@PathVariable("no") int no, Model model) {
+
+		Members membersModel = membersRepository.findById(no).get();
+		model.addAttribute("member", membersModel);
+
+		return "index";
+	}
+
+	@RequestMapping(value = "/api/search", method = RequestMethod.GET)
+	public ResponseEntity<List<Members>> searchMembersApi() {
 
 		List<Members> membersList = membersRepository.findAll();
 
-		return membersList;
+		return new ResponseEntity<>(membersList, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/members/add", method = RequestMethod.POST)
-	public String addMember(@RequestBody Members reqBody) {
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String searchMembers(Model model) {
+
+		List<Members> membersList = membersRepository.findAll();
+		model.addAttribute("memberList", membersList);
+
+		return "index";
+	}
+
+	@RequestMapping(value = "/api/add", method = RequestMethod.POST)
+	public String addMemberApi(@RequestBody Members reqBody) {
 
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
@@ -59,8 +81,8 @@ public class MembersController {
 		return SUCCESS;
 	}
 
-	@RequestMapping(value = "/members/edit/{no}", method = RequestMethod.PUT)
-	public String editMember(@PathVariable("no") int no, @RequestBody Members reqBody) {
+	@RequestMapping(value = "/api/edit/{no}", method = RequestMethod.PUT)
+	public String editMemberApi(@PathVariable("no") int no, @RequestBody Members reqBody) {
 
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
@@ -86,8 +108,8 @@ public class MembersController {
 		return SUCCESS;
 	}
 
-	@RequestMapping(value = "members/delete/{no}", method = RequestMethod.DELETE)
-	public String deleteMember(@PathVariable("no") int no) {
+	@RequestMapping(value = "/api/delete/{no}", method = RequestMethod.DELETE)
+	public String deleteMemberApi(@PathVariable("no") int no) {
 
 		try {
 
@@ -101,11 +123,20 @@ public class MembersController {
 		return SUCCESS;
 	}
 
-	@RequestMapping(value= "members/check/{no}", method = RequestMethod.GET)
-	public boolean exMember(@PathVariable("no") int no) {
+	// 파일 분할 예정
+	@RequestMapping(value = "/api/check/{no}", method = RequestMethod.GET)
+	public boolean checkMemberApi(@PathVariable("no") int no) {
 
-		boolean idCheck = membersRepository.existsById(no);
+		boolean idExistCheck = membersRepository.existsById(no);
 
-		return idCheck;
+		return idExistCheck;
+	}
+
+	@RequestMapping(value = "/api/count", method = RequestMethod.GET)
+	public int countMemberApi() {
+
+		int memberCount = membersRepository.memberCount();
+
+		return memberCount;
 	}
 }
