@@ -123,7 +123,7 @@ public class MembersController {
 			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity<>(SUCCESS, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	// 파일 분할 예정
@@ -148,15 +148,17 @@ public class MembersController {
 
 			session.setAttribute("memberLoginEmail", reqBody.getParameter("email"));
 			model.addAttribute("alt","<script>alert('환영합니다.');</script>");
-			return "index";			
+			model.addAttribute("success", "/");
+			return "login";
 		}
 	}
 
-	@RequestMapping(value = "/api/logout", method = RequestMethod.GET)
-	public String logoutMemberApi(HttpSession session, Model model) {
+	@RequestMapping(value = "/api/logout", method = RequestMethod.POST)
+	public ResponseEntity<String> logoutMemberApi(HttpSession session, Model model) {
+
 		session.removeAttribute("memberLoginEmail");
 		model.addAttribute("alt", "<script>alert('로그아웃 되셨습니다.');</script>");
-		return "index";
+		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/api/count", method = RequestMethod.GET)

@@ -109,7 +109,7 @@
 												aria-labelledby="userName">
 												<a class="dropdown-item" href="">Profile</a> <a
 													class="dropdown-item" href="">Account Info</a> <a
-													class="dropdown-item" href="/members/api/logout">Logout</a>
+													class="dropdown-item" id="logOut" href="">Logout</a>
 											</div>
 										</div>
 									</div>

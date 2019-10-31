@@ -9,9 +9,9 @@ import com.example.model.Members;
 
 @Repository
 public interface MembersRepository extends JpaRepository<Members, Integer> {
-	@Query(value = "SELECT COUNT(no) FROM dk.members", nativeQuery = true)
+	@Query(value = "SELECT COUNT(no) FROM members", nativeQuery = true)
 	int memberCount();
 	
-	@Query(value = "SELECT COUNT(no) FROM dk.members WHERE email=:email AND pwd=:pwd", nativeQuery = true)
+	@Query(value = "SELECT COUNT(no) FROM members WHERE email=:email AND pwd=:pwd", nativeQuery = true)
 	int memberLogin(@Param("email") String email, @Param("pwd") String pwd);
 }

@@ -33,6 +33,11 @@
 <script src="/resources/login/js/main.js"></script>
 
 <div class="limiter">
+	<c:if test="${not empty success }">
+		<script>
+			location.href="/";
+		</script>
+	</c:if>
 	<div class="container-login100">
 		<div class="wrap-login100">
 			<div class="login100-form-title"
