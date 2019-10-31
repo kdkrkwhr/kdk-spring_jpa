@@ -6,7 +6,7 @@
 Kim Dong-gi
 ---
 ### **Data Base**     
-+ MySQL v5.X   
++ AWS - RDS (MySQL v5.X)   
 
 ### **Back End**     
 + Spring Boot    
