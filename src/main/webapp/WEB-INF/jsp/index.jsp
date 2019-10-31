@@ -190,8 +190,8 @@
 							<div class="row">
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="name"
-											placeholder="Name" name="name">
+										<input type="text" class="form-control" id="name" name="name"
+											placeholder="Name">
 									</div>
 								</div>
 								<div class="col-12 col-lg-6">
@@ -202,14 +202,14 @@
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="phone" name="phone"
-											placeholder="Phone">
+										<input type="text" class="form-control" id="pwd"
+											placeholder="Password" name="pwd">
 									</div>
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="address" name="address"
-											placeholder="address">
+										<input type="text" class="form-control" id="phone" name="phone"
+											placeholder="Phone">
 									</div>
 								</div>
 								<div class="col-12">
@@ -288,7 +288,9 @@
 	</div>
 </section>
 <!-- ##### Blog Area End ##### -->
+
 <script src="/resources/js/use/insert.js"></script>
+
 <!-- ##### Footer Area Start ##### -->
 <%@ include file="./footer.jsp"%>
 <!-- ##### Footer Area End ##### -->

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,88 +22,110 @@
 <script src="/resources/js/bootstrap/popper.min.js"></script>
 <!-- Bootstrap js -->
 <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+<!-- Common JS -->
+<script src="/resources/js/use/common.js"></script>
 </head>
 <body>
-<header class="header-area">
-	<!-- Top Header Area -->
-	<div
-		class="top-header-area d-flex justify-content-between align-items-center">
-		<!-- Contact Info -->
-		<div class="contact-info">
-			<a href="#"><span>문의:</span> 010-9392-3762 </a> 
-			<a href="#"><span>이메일:</span> kdkdongki1997@gmail.com </a>
+	<header class="header-area">
+		${alt }
+		<!-- Top Header Area -->
+		<div
+			class="top-header-area d-flex justify-content-between align-items-center">
+			<!-- Contact Info -->
+			<div class="contact-info">
+				<a href="#"><span>문의:</span> 010-9392-3762 </a> <a href="#"><span>이메일:</span>
+					kdkdongki1997@gmail.com </a>
+			</div>
+			<!-- Follow Us -->
+			<div class="follow-us">
+				<span>Follow us</span> <a href="#" class="common-sns"><i
+					class="fa fa-facebook" aria-hidden="true"></i></a> <a href="#"
+					class="common-sns"><i class="fa fa-instagram"
+					aria-hidden="true"></i></a> <a href="#" class="common-sns"><i
+					class="fa fa-twitter" aria-hidden="true"></i></a>
+			</div>
 		</div>
-		<!-- Follow Us -->
-		<div class="follow-us">
-			<span>Follow us</span> <a href="#"><i class="fa fa-facebook"
-				aria-hidden="true"></i></a> <a href="#"><i class="fa fa-instagram"
-				aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter"
-				aria-hidden="true"></i></a>
-		</div>
-	</div>
 
-	<!-- Navbar Area -->
-	<div class="clever-main-menu">
-		<div class="classy-nav-container breakpoint-off">
-			<!-- Menu -->
-			<nav class="classy-navbar justify-content-between" id="cleverNav">
-
-				<!-- Logo -->
-				<a class="nav-brand" href=""><img
-					src="/resources/img/core-img/k_logo.png" alt=""></a>
-
-				<!-- Navbar Toggler -->
-				<div class="classy-navbar-toggler">
-					<span class="navbarToggler"><span></span><span></span><span></span></span>
-				</div>
-
+		<!-- Navbar Area -->
+		<div class="clever-main-menu">
+			<div class="classy-nav-container breakpoint-off">
 				<!-- Menu -->
-				<div class="classy-menu">
+				<nav class="classy-navbar justify-content-between" id="cleverNav">
 
-					<!-- Close Button -->
-					<div class="classycloseIcon">
-						<div class="cross-wrap">
-							<span class="top"></span><span class="bottom"></span>
-						</div>
+					<!-- Logo -->
+					<a class="nav-brand" href="/"><img
+						src="/resources/img/core-img/k_logo.png" alt=""></a>
+
+					<!-- Navbar Toggler -->
+					<div class="classy-navbar-toggler">
+						<span class="navbarToggler"><span></span><span></span><span></span></span>
 					</div>
 
-					<!-- Nav Start -->
-					<div class="classynav">
-						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">스터디 모집</a>
-								<ul class="dropdown">
-									<li><a href="#">IT & SOFTWARE</a></li>
-									<li><a href="#">ART & DESIGN</a></li>
-									<li><a href="#">BUSINESS</a></li>
-									<li><a href="#">LANGUAGES</a></li>
-								</ul></li>
-							<li><a href="#">스터디 후기</a></li>
-							<li><a href="#">자료실</a></li>
-							<li><a href="#">오시는길</a></li>
-						</ul>
+					<!-- Menu -->
+					<div class="classy-menu">
 
-						<!-- Search Button -->
-						<div class="search-area">
-							<form method="get">
-								<input type="search" name="search" id="search"
-									placeholder="Search">
-								<button type="submit">
-									<i class="fa fa-search" aria-hidden="true"></i>
-								</button>
-							</form>
+						<!-- Close Button -->
+						<div class="classycloseIcon">
+							<div class="cross-wrap">
+								<span class="top"></span><span class="bottom"></span>
+							</div>
 						</div>
 
-						<!-- Register / Login -->
-						<div class="register-login-area">
-							<a href="" class="btn">회원가입</a>
-							<a href="" class="btn active">로그인</a>
-						</div>
+						<!-- Nav Start -->
+						<div class="classynav">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="#">스터디 모집</a>
+									<ul class="dropdown">
+										<li><a href="#">IT & SOFTWARE</a></li>
+										<li><a href="#">ART & DESIGN</a></li>
+										<li><a href="#">BUSINESS</a></li>
+										<li><a href="#">LANGUAGES</a></li>
+									</ul></li>
+								<li><a href="#">스터디 후기</a></li>
+								<li><a href="#">자료실</a></li>
+								<li><a href="/location">오시는길</a></li>
+							</ul>
 
+							<!-- Search Button -->
+							<div class="search-area">
+								<form method="get">
+									<input type="search" name="search" id="search"
+										placeholder="Search">
+									<button type="submit">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+								</form>
+							</div>
+
+							<c:if test="${not empty memberLoginEmail }">
+								<div class="login-state d-flex align-items-center">
+									<div class="user-name mr-30">
+										<div class="dropdown">
+											<a class="dropdown-toggle" href="#" role="button"
+												id="userName" data-toggle="dropdown" aria-haspopup="true"
+												aria-expanded="false">${memberLoginEmail }</a>
+											<div class="dropdown-menu dropdown-menu-right"
+												aria-labelledby="userName">
+												<a class="dropdown-item" href="">Profile</a> <a
+													class="dropdown-item" href="">Account Info</a> <a
+													class="dropdown-item" href="/members/api/logout">Logout</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:if>
+
+							<c:if test="${empty memberLoginEmail }">
+								<div class="register-login-area">
+									<a href="" class="btn">회원가입</a> <a href="/login" class="btn">로그인</a>
+								</div>
+							</c:if>
+						</div>
 					</div>
 					<!-- Nav End -->
-				</div>
+			</div>
 			</nav>
 		</div>
-	</div>
-</header>
+		</div>
+	</header>

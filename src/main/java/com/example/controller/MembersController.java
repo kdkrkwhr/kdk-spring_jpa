@@ -2,6 +2,9 @@ package com.example.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,7 +64,7 @@ public class MembersController {
 
 	@RequestMapping(value = "/api/add", method = RequestMethod.POST)
 	public ResponseEntity<String> addMemberApi(@RequestBody Members reqBody) {
-		System.out.println("reqBody.getEmail() : " + reqBody.getEmail());
+
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
 
@@ -130,6 +133,30 @@ public class MembersController {
 		boolean idExistCheck = membersRepository.existsById(no);
 
 		return idExistCheck;
+	}
+
+	@RequestMapping(value = "/api/login", method = RequestMethod.POST)
+	public String loginMemberApi(HttpServletRequest reqBody, HttpSession session, Model model) {
+
+		int memberCount = membersRepository.memberLogin(reqBody.getParameter("email"), reqBody.getParameter("pwd"));
+
+		if (memberCount == 0) {
+
+			model.addAttribute("alt","<script>alert('로그인 실패하였습니다.');</script>");
+			return "login";
+		} else {
+
+			session.setAttribute("memberLoginEmail", reqBody.getParameter("email"));
+			model.addAttribute("alt","<script>alert('환영합니다.');</script>");
+			return "index";			
+		}
+	}
+
+	@RequestMapping(value = "/api/logout", method = RequestMethod.GET)
+	public String logoutMemberApi(HttpSession session, Model model) {
+		session.removeAttribute("memberLoginEmail");
+		model.addAttribute("alt", "<script>alert('로그아웃 되셨습니다.');</script>");
+		return "index";
 	}
 
 	@RequestMapping(value = "/api/count", method = RequestMethod.GET)
