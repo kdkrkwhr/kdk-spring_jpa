@@ -156,7 +156,7 @@ public class MembersController {
 	@RequestMapping(value = "/api/logout", method = RequestMethod.POST)
 	public ResponseEntity<String> logoutMemberApi(HttpSession session, Model model) {
 
-		session.removeAttribute("memberLoginEmail");
+		session.removeAttribute("sessionMember");
 		model.addAttribute("alt", "<script>alert('로그아웃 되셨습니다.');</script>");
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
