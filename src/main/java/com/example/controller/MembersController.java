@@ -138,15 +138,15 @@ public class MembersController {
 	@RequestMapping(value = "/api/login", method = RequestMethod.POST)
 	public String loginMemberApi(HttpServletRequest reqBody, HttpSession session, Model model) {
 
-		int memberCount = membersRepository.memberLogin(reqBody.getParameter("email"), reqBody.getParameter("pwd"));
+		Members member = membersRepository.memberLogin(reqBody.getParameter("email"), reqBody.getParameter("pwd"));
 
-		if (memberCount == 0) {
+		if (member == null) {
 
 			model.addAttribute("alt","<script>alert('로그인 실패하였습니다.');</script>");
 			return "login";
 		} else {
 
-			session.setAttribute("memberLoginEmail", reqBody.getParameter("email"));
+			session.setAttribute("sessionMember", member);
 			model.addAttribute("alt","<script>alert('환영합니다.');</script>");
 			model.addAttribute("success", "/");
 			return "login";

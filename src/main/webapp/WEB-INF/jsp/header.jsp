@@ -98,13 +98,13 @@
 								</form>
 							</div>
 
-							<c:if test="${not empty memberLoginEmail }">
+							<c:if test="${not empty sessionMember }">
 								<div class="login-state d-flex align-items-center">
 									<div class="user-name mr-30">
 										<div class="dropdown">
 											<a class="dropdown-toggle" href="#" role="button"
 												id="userName" data-toggle="dropdown" aria-haspopup="true"
-												aria-expanded="false">${memberLoginEmail }</a>
+												aria-expanded="false">${sessionMember.email }</a>
 											<div class="dropdown-menu dropdown-menu-right"
 												aria-labelledby="userName">
 												<a class="dropdown-item" href="">Profile</a> <a
@@ -116,7 +116,7 @@
 								</div>
 							</c:if>
 
-							<c:if test="${empty memberLoginEmail }">
+							<c:if test="${empty sessionMember }">
 								<div class="register-login-area">
 									<a href="" class="btn">회원가입</a> <a href="/login" class="btn">로그인</a>
 								</div>
