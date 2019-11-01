@@ -13,7 +13,7 @@
 <!-- Title -->
 <title>Study Meeting</title>
 <!-- Favicon -->
-<link rel="icon" href="/resources/img/core-img/favicon.ico">
+<link rel="icon" href="/resources/img/core-img/k_logo2.png">
 <!-- Stylesheet -->
 <link rel="stylesheet" href="/resources/style.css">
 <!-- jQuery-2.2.4 js -->
@@ -54,7 +54,7 @@
 
 					<!-- Logo -->
 					<a class="nav-brand" href="/"><img
-						src="/resources/img/core-img/k_logo.png" alt=""></a>
+						src="/resources/img/core-img/k_logo2.png" alt=""></a>
 
 					<!-- Navbar Toggler -->
 					<div class="classy-navbar-toggler">
@@ -118,7 +118,7 @@
 
 							<c:if test="${empty sessionMember }">
 								<div class="register-login-area">
-									<a href="" class="btn">회원가입</a> <a href="/login" class="btn">로그인</a>
+									<a href="/register" class="btn">회원가입</a> <a href="/login" class="btn">로그인</a>
 								</div>
 							</c:if>
 						</div>

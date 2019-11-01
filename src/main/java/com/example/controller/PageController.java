@@ -11,13 +11,14 @@ public class PageController {
 		return "login";
 	}
 
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String registerPage() {
+		return "register";
+	}
+
 	@RequestMapping(value = "/location", method = RequestMethod.GET)
 	public String locationPage() {
 		return "location";
 	}
 
-	@RequestMapping(value = "/board", method = RequestMethod.GET)
-	public String boardPage() {
-		return "boardList";
-	}
 }
