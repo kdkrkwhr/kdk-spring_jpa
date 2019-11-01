@@ -82,9 +82,9 @@
 										<li><a href="/board/busuness">BUSINESS</a></li>
 										<li><a href="/board/language">LANGUAGES</a></li>
 									</ul></li>
-								<li><a href="#">스터디 후기</a></li>
-								<li><a href="#">자료실</a></li>
-								<li><a href="/location">오시는길</a></li>
+								<li><a href="/board/reply">스터디 후기</a></li>
+								<li><a href="/board/store">자료실</a></li>
+								<li><a href="/location">문의하기</a></li>
 							</ul>
 
 							<!-- Search Button -->
@@ -107,8 +107,7 @@
 												aria-expanded="false">${sessionMember.email }</a>
 											<div class="dropdown-menu dropdown-menu-right"
 												aria-labelledby="userName">
-												<a class="dropdown-item" href="">Profile</a> <a
-													class="dropdown-item" href="">Account Info</a> <a
+												<a class="dropdown-item" href="" class="common-sns">Profile</a> <a
 													class="dropdown-item" id="logOut" href="">Logout</a>
 											</div>
 										</div>

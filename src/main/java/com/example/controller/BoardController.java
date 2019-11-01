@@ -48,6 +48,10 @@ public class BoardController {
 			boardCat = "BUSINESS";
 		} else if (boardCat.equalsIgnoreCase("LANGUAGE")) {
 			boardCat = "LANGUAGE";
+		} else if (boardCat.equalsIgnoreCase("reply")) {
+			boardCat = "스터디 후기";
+		} else if (boardCat.equalsIgnoreCase("store")) {
+			boardCat = "자료실";
 		}
 
 		model.addAttribute("boardList", boardList);
