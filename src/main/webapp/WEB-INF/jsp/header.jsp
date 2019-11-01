@@ -77,10 +77,10 @@
 								<li><a href="/">Home</a></li>
 								<li><a href="#">스터디 모집</a>
 									<ul class="dropdown">
-										<li><a href="#">IT & SOFTWARE</a></li>
-										<li><a href="#">ART & DESIGN</a></li>
-										<li><a href="#">BUSINESS</a></li>
-										<li><a href="#">LANGUAGES</a></li>
+										<li><a href="/board/it">IT & SOFTWARE</a></li>
+										<li><a href="/board/art">ART & DESIGN</a></li>
+										<li><a href="/board/busuness">BUSINESS</a></li>
+										<li><a href="/board/language">LANGUAGES</a></li>
 									</ul></li>
 								<li><a href="#">스터디 후기</a></li>
 								<li><a href="#">자료실</a></li>

@@ -88,7 +88,6 @@
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="single-popular-course mb-100 wow fadeInUp"
 					data-wow-delay="250ms">
-					<img src="/resources/img/bg-img/c1.jpg" alt="">
 					<!-- Course Content -->
 					<div class="course-content">
 						<h4>직장인 영어</h4>
@@ -117,7 +116,6 @@
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="single-popular-course mb-100 wow fadeInUp"
 					data-wow-delay="500ms">
-					<img src="/resources/img/bg-img/c2.jpg" alt="">
 					<!-- Course Content -->
 					<div class="course-content">
 						<h4>김동기의 코딩 스터디</h4>
@@ -146,7 +144,6 @@
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="single-popular-course mb-100 wow fadeInUp"
 					data-wow-delay="750ms">
-					<img src="/resources/img/bg-img/c3.jpg" alt="">
 					<!-- Course Content -->
 					<div class="course-content">
 						<h4>(초보) 볼링 멤버 모집</h4>

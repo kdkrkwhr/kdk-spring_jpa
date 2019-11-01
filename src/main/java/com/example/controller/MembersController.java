@@ -37,7 +37,7 @@ public class MembersController {
 	}
 
 	@RequestMapping(value = "/search/{no}", method = RequestMethod.GET)
-	public String searchMemberById(@PathVariable("no") int no, Model model) {
+	public String getMemberById(@PathVariable("no") int no, Model model) {
 
 		Members membersModel = membersRepository.findById(no).get();
 		model.addAttribute("member", membersModel);
@@ -46,7 +46,7 @@ public class MembersController {
 	}
 
 	@RequestMapping(value = "/api/search", method = RequestMethod.GET)
-	public ResponseEntity<List<Members>> searchMembersApi() {
+	public ResponseEntity<List<Members>> getMembersApi() {
 
 		List<Members> membersList = membersRepository.findAll();
 
@@ -54,7 +54,7 @@ public class MembersController {
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchMembers(Model model) {
+	public String getMembers(Model model) {
 
 		List<Members> membersList = membersRepository.findAll();
 		model.addAttribute("memberList", membersList);
@@ -157,7 +157,7 @@ public class MembersController {
 	public ResponseEntity<String> logoutMemberApi(HttpSession session, Model model) {
 
 		session.removeAttribute("sessionMember");
-		model.addAttribute("alt", "<script>alert('로그아웃 되셨습니다.');</script>");
+		model.addAttribute("alt", "<script></script>");
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 

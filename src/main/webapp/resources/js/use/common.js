@@ -11,6 +11,7 @@ $().ready(function() {
 	        method: "POST",
 	        url: pageUrl + "members/api/logout",
 	        success: function() {
+	        	alert('로그아웃 되셨습니다.');
 	        	location.reload();
 	        }
 	    });
