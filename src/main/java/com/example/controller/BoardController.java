@@ -98,4 +98,16 @@ public class BoardController {
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
+
+	@RequestMapping(value = "/api/search/{searchVal }", method = RequestMethod.GET)
+	public void searchBoard(@PathVariable String searchVal) {
+
+		try {
+
+			boardRepository.boardSearchList(searchVal);
+
+		} catch (Exception e) {
+			
+		}
+	}
 }

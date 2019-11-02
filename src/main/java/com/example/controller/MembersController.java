@@ -157,7 +157,6 @@ public class MembersController {
 	public ResponseEntity<String> logoutMemberApi(HttpSession session, Model model) {
 
 		session.removeAttribute("sessionMember");
-		model.addAttribute("alt", "<script></script>");
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 

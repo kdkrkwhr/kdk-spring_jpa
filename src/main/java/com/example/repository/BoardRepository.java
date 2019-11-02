@@ -24,6 +24,11 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
 			"    FROM board WHERE board_cat = :boardCat";
 
+	String boardSearchListQuery = "";
+
 	@Query(value = boardListQuery, nativeQuery = true)
 	List<Board> boardList(@Param("boardCat") String boardCat);
+
+	@Query(value = boardSearchListQuery, nativeQuery = true)
+	List<Board> boardSearchList(@Param("searchVal") String searchVal);
 }
