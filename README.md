@@ -11,7 +11,8 @@ Kim Dong-gi
 ### **Back End**     
 + Spring Boot    
 + Maven Dependency    
-+ Lombok    
++ Lombok       
++ JPA (ORM)   
 
 ### **Front End**     
 + jQuery
