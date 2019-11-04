@@ -4,12 +4,14 @@
 <!-- ##### Header Area Start ##### -->
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
+
 <c:if test="${empty sessionMember }">
 <script>
 alert("로그인 후 게시글 작성이 가능합니다.");
-location.href = '/';
+location.href = '/login';
 </script>
 </c:if>
+
 <section
 	class="register-now section-padding-100-0 d-flex justify-content-between align-items-center" style="padding-top: 40px; padding-bottom: 40px;">
 	<!-- Register Contact Form -->

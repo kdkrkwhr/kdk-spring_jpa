@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.model.Members;
+import com.example.repository.BoardRepository;
 import com.example.repository.MembersRepository;
 
 @Controller
@@ -153,7 +154,7 @@ public class MembersController {
 		}
 	}
 
-	@RequestMapping(value = "/api/logout", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/logout", method = RequestMethod.GET)
 	public ResponseEntity<String> logoutMemberApi(HttpSession session, Model model) {
 
 		session.removeAttribute("sessionMember");

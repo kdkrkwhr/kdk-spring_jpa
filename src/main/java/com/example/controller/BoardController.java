@@ -22,6 +22,7 @@ public class BoardController {
 
 	static final String SUCCESS = "SUCCESS";
 	static final String NO_VALUE_ERROR = "NO VALUE";
+
 	@Autowired
 	private BoardRepository boardRepository;
 

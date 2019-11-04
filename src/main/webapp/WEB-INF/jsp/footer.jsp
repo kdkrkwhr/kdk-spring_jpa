@@ -26,13 +26,8 @@
 	</div>
 
 	<!-- Bottom Footer Area -->
-	<div
-		class="bottom-footer-area d-flex justify-content-between align-items-center">
-		<!-- Contact Info -->
-		<div class="contact-info">
-			<a href="#"><span>문의:</span> 010-9392-3762 </a> <a href="#"><span>이메일:</span>
-				kdkdongki1997@gmail.com</a>
-		</div>
+	<div class="bottom-footer-area d-flex justify-content-between align-items-center">
+
 		<!-- Follow Us -->
 		<div class="follow-us">
 			<span>Follow us</span> <a href="#" class="common-sns"><i class="fa fa-facebook"

@@ -33,9 +33,9 @@
 						<img src="/resources/img/core-img/star.png" alt="">
 					</div>
 					<h2>
-						<span class="counter">5</span>
+						<span class="counter">${newBoardCnt }</span>
 					</h2>
-					<h5>모집중인 스터디</h5>
+					<h5>신규 스터디</h5>
 				</div>
 			</div>
 
@@ -47,9 +47,9 @@
 						<img src="/resources/img/core-img/star.png" alt="">
 					</div>
 					<h2>
-						<span class="counter">13</span>
+						<span class="counter">${weekBoardCnt }</span>
 					</h2>
-					<h5>진행중인 스터디</h5>
+					<h5>이번주 등록된 스터디</h5>
 				</div>
 			</div>
 
@@ -61,9 +61,9 @@
 						<img src="/resources/img/core-img/star.png" alt="">
 					</div>
 					<h2>
-						<span class="counter">2</span>
+						<span class="counter">${totalBoardCnt }</span>
 					</h2>
-					<h5>신규 스터디</h5>
+					<h5>총 진행된 스터디</h5>
 				</div>
 			</div>
 		</div>
@@ -84,89 +84,33 @@
 		</div>
 
 		<div class="row">
-			<!-- Single Popular Course -->
-			<div class="col-12 col-md-6 col-lg-4">
-				<div class="single-popular-course mb-100 wow fadeInUp"
-					data-wow-delay="250ms">
-					<!-- Course Content -->
-					<div class="course-content">
-						<h4>직장인 영어</h4>
-						<div class="meta d-flex align-items-center">
-							<a href="#">김동기</a> <span><i class="fa fa-circle"
-								aria-hidden="true"></i></span> <a href="#">LANGUAGES</a>
+			<c:forEach var = "board" items = "${boardList }">
+				<!-- Single Popular Course -->
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-popular-course mb-100 wow fadeInUp"
+						data-wow-delay="250ms">
+						<!-- Course Content -->
+						<div class="course-content">
+							<h4>${board.subject }</h4>
+							<div class="meta d-flex align-items-center">
+								<a href="#">${board.memberNo }</a> <span><i class="fa fa-circle"
+									aria-hidden="true"></i></span> <a href="#">${board.boardCat }</a>
+							</div>
+							<p style="height: 200px;overflow:auto;">
+							${board.content }
+						    </p>
 						</div>
-						<p>
-						* 조건: 토스 170이상, 오픽 AL은 무조건 환영, IH는 고득점이어야 같이하는데 큰무리 없을듯요. <br/>
-					    * 한 달 5회 기준 4회(4회 기준 3회) 이상 출석할 열정이 있으신 분 . <br/>
-					    * 책임감 있는 직장인(학생은 죄송)
-					    </p>
-					</div>
-					<!-- Seat Rating Fee -->
-					<div class="seat-rating-fee d-flex justify-content-between">
-						<div class="seat-rating h-100 d-flex align-items-center">
-							<div class="seat">
-								<i class="fa fa-user" aria-hidden="true"></i> 5/10
+						<!-- Seat Rating Fee -->
+						<div class="seat-rating-fee d-flex justify-content-between">
+							<div class="seat-rating h-100 d-flex align-items-center">
+								<div class="seat">
+									<i class="fa fa-user" aria-hidden="true"></i> 0 / ${board.totalPersonCnt }
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<!-- Single Popular Course -->
-			<div class="col-12 col-md-6 col-lg-4">
-				<div class="single-popular-course mb-100 wow fadeInUp"
-					data-wow-delay="500ms">
-					<!-- Course Content -->
-					<div class="course-content">
-						<h4>김동기의 코딩 스터디</h4>
-						<div class="meta d-flex align-items-center">
-							<a href="#">김동기</a> <span><i class="fa fa-circle"
-								aria-hidden="true"></i></span> <a href="#">IT &amp; SOFTWARE</a>
-						</div>
-						<p>
-						* 조건: 토스 170이상, 오픽 AL은 무조건 환영, IH는 고득점이어야 같이하는데 큰무리 없을듯요. <br/>
-					    * 한 달 5회 기준 4회(4회 기준 3회) 이상 출석할 열정이 있으신 분 . <br/>
-					    * 책임감 있는 직장인(학생은 죄송)
-					    </p>
-					</div>
-					<!-- Seat Rating Fee -->
-					<div class="seat-rating-fee d-flex justify-content-between">
-						<div class="seat-rating h-100 d-flex align-items-center">
-							<div class="seat">
-								<i class="fa fa-user" aria-hidden="true"></i> 1/10
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Single Popular Course -->
-			<div class="col-12 col-md-6 col-lg-4">
-				<div class="single-popular-course mb-100 wow fadeInUp"
-					data-wow-delay="750ms">
-					<!-- Course Content -->
-					<div class="course-content">
-						<h4>(초보) 볼링 멤버 모집</h4>
-						<div class="meta d-flex align-items-center">
-							<a href="#">김동기</a> <span><i class="fa fa-circle"
-								aria-hidden="true"></i></span> <a href="#">BUSINESS</a>
-						</div>
-						<p>
-						* 조건: 토스 170이상, 오픽 AL은 무조건 환영, IH는 고득점이어야 같이하는데 큰무리 없을듯요. <br/>
-					    * 한 달 5회 기준 4회(4회 기준 3회) 이상 출석할 열정이 있으신 분 . <br/>
-					    * 책임감 있는 직장인(학생은 죄송)
-					    </p>
-					</div>
-					<!-- Seat Rating Fee -->
-					<div class="seat-rating-fee d-flex justify-content-between">
-						<div class="seat-rating h-100 d-flex align-items-center">
-							<div class="seat">
-								<i class="fa fa-user" aria-hidden="true"></i> 7/10
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
 </section>

@@ -41,7 +41,7 @@
 							<h6>
 								<i class="fa fa-map-pin" aria-hidden="true"></i>주소
 							</h6>
-							<h6>서울시 남부순환로 55길 10-4</h6>
+							<h6>서울시 남부순환로 55길 10-4 (301 호)</h6>
 						</li>
 					</ul>
 				</div>
