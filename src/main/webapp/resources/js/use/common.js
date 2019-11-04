@@ -1,6 +1,12 @@
 /**
  * COMMON
  */
+var pageUrl = window.location.href;
+
+function boardDetailAction(boardNo) {
+	alert(boardNo);
+	location.href = "/board/view/" + boardNo;
+}
 
 $().ready(function() {
 	$('.common-sns').click(function(){

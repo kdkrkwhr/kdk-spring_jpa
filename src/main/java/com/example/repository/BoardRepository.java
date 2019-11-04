@@ -13,7 +13,7 @@ import com.example.model.Board;
 public interface BoardRepository extends JpaRepository<Board, Integer> {
 
 	String boardListQuery = 
-			"	 SELECT" + 
+			"	 SELECT" +
 			"	 board_no," + 
 			"	 subject," + 
 			"    content," + 
@@ -22,6 +22,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"	   WHEN board_cat = 'art'  THEN 'ART & DESIGN' END AS board_cat," +
 			"    member_no," + 
 			"    total_person_cnt," + 
+			"	 communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
 			"    FROM board WHERE board_cat = :boardCat";
 
@@ -35,6 +36,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"	   WHEN board_cat = 'art'  THEN 'ART & DESIGN' END AS board_cat," +
 			"    member_no," + 
 			"    total_person_cnt," + 
+			"	 communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
 			"	 FROM board " +
 			"	 WHERE subject like '%:searchVal%' " +

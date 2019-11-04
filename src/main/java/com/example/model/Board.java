@@ -31,16 +31,18 @@ public class Board {
 	private String boardCat;
 	private int memberNo;
 	private int totalPersonCnt;
+	private String communication;
 	private String regDate;
 
 	@Builder
-	public Board(String subject, String content, String boardCat, int memberNo, int totalPersonCnt, String regDate) {
+	public Board(String subject, String content, String boardCat, int memberNo, int totalPersonCnt, String communication, String regDate) {
 
 		this.subject = subject;
 		this.content = content;
 		this.boardCat = boardCat;
 		this.memberNo = memberNo;
 		this.totalPersonCnt = totalPersonCnt;
+		this.communication = communication;
 		this.regDate = regDate;
 	}
 }

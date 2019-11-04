@@ -71,8 +71,14 @@ public class BoardController {
 
 		try {
 
-			boardRepository.save(Board.builder().subject(reqBody.getSubject()).content(reqBody.getContent())
-					.boardCat(reqBody.getBoardCat()).memberNo(reqBody.getMemberNo()).totalPersonCnt(reqBody.getTotalPersonCnt())
+			boardRepository.save(
+					Board.builder()
+					.subject(reqBody.getSubject())
+					.content(reqBody.getContent())
+					.boardCat(reqBody.getBoardCat())
+					.memberNo(reqBody.getMemberNo())
+					.totalPersonCnt(reqBody.getTotalPersonCnt())
+					.communication(reqBody.getCommunication())
 					.build());
 
 		} catch(Exception e) {

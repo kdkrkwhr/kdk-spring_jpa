@@ -12,6 +12,6 @@ public interface MembersRepository extends JpaRepository<Members, Integer> {
 	@Query(value = "SELECT COUNT(no) FROM members", nativeQuery = true)
 	int memberCount();
 	
-	@Query(value = "SELECT * FROM members WHERE email=:email AND pwd=:pwd", nativeQuery = true)
+	@Query(value = "SELECT no, email, pwd, name, phone, address FROM members WHERE email=:email AND pwd=:pwd", nativeQuery = true)
 	Members memberLogin(@Param("email") String email, @Param("pwd") String pwd);
 }

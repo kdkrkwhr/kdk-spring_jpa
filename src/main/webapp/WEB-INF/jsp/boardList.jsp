@@ -30,7 +30,7 @@
 
 			<c:forEach var = "board" items = "${boardList }">
                 <!-- Single Popular Course -->
-                <div class="col-12 col-md-6 col-lg-12" style="height: 250px;">
+                <div class="col-12 col-md-6 col-lg-12" style="height: 250px;" onclick="boardDetailAction(${board.boardNo});">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
                         <!-- Course Content -->
                         <div class="course-content">

@@ -108,11 +108,11 @@
 										<div class="dropdown">
 											<a class="dropdown-toggle" href="#" role="button"
 												id="userName" data-toggle="dropdown" aria-haspopup="true"
-												aria-expanded="false">${sessionMember.email }</a>
+												aria-expanded="false">${sessionMember.name  }</a>
 											<div class="dropdown-menu dropdown-menu-right"
 												aria-labelledby="userName">
-												<a class="dropdown-item" href="" class="common-sns">Profile</a> <a
-													class="dropdown-item" id="logOut" href="">Logout</a>
+												<a class="dropdown-item" href="#" class="common-sns">Profile</a> 
+												<a class="dropdown-item" id="logOut" href="#">Logout</a>
 											</div>
 										</div>
 									</div>
