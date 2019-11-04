@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.model.Board;
 import com.example.repository.BoardRepository;
@@ -97,10 +98,10 @@ public class BoardController {
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/search/{searchVal}", method = RequestMethod.GET)
-	public String searchBoard(@PathVariable String searchVal, Model model) {
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String searchBoard(@RequestParam String search, Model model) {
 
-		List<Board> boardList = boardRepository.boardSearchList(searchVal);
+		List<Board> boardList = boardRepository.boardSearchList(search);
 		String boardCat = "검색 결과";
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("boardCat", boardCat);

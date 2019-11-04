@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/function"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +89,7 @@
 
 							<!-- Search Button -->
 							<div class="search-area">
-								<form method="get">
+								<form method="get" action="/board/search">
 									<input type="search" name="search" id="search"
 										placeholder="Search">
 									<button type="submit">
