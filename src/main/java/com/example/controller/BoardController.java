@@ -25,7 +25,7 @@ public class BoardController {
 	private BoardRepository boardRepository;
 
 	// 상세 조회
-	@RequestMapping(value = "/search/{boardNo}", method = RequestMethod.GET)
+	@RequestMapping(value = "/view/{boardNo}", method = RequestMethod.GET)
 	public String getBoard(@PathVariable("boardNo") int boardNo, Model model) {
 
 		Board board = boardRepository.findById(boardNo).get();
@@ -77,7 +77,6 @@ public class BoardController {
 		} catch(Exception e) {
 
 			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
-
 		}
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
@@ -93,21 +92,19 @@ public class BoardController {
 		} catch (Exception e) {
 
 			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
-
 		}
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/api/search/{searchVal }", method = RequestMethod.GET)
-	public void searchBoard(@PathVariable String searchVal) {
+	@RequestMapping(value = "/search/{searchVal}", method = RequestMethod.GET)
+	public String searchBoard(@PathVariable String searchVal, Model model) {
 
-		try {
+		List<Board> boardList = boardRepository.boardSearchList(searchVal);
+		String boardCat = "검색 결과";
+		model.addAttribute("boardList", boardList);
+		model.addAttribute("boardCat", boardCat);
 
-			boardRepository.boardSearchList(searchVal);
-
-		} catch (Exception e) {
-			
-		}
+		return "boardList";
 	}
 }
