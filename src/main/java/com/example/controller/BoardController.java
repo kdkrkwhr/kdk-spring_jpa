@@ -101,8 +101,10 @@ public class BoardController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String searchBoard(@RequestParam String search, Model model) {
 
-		List<Board> boardList = boardRepository.boardSearchList(search);
 		String boardCat = "검색 결과";
+
+		List<Board> boardList = boardRepository.boardSearchList(search);
+
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("boardCat", boardCat);
 

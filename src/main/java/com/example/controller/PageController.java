@@ -21,4 +21,8 @@ public class PageController {
 		return "location";
 	}
 
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public String boardInsertPage() {
+		return "boardDetail";
+	}
 }

@@ -7,11 +7,6 @@ $().ready(function() {
 		alert('준비중 입니다.');
 	})
 
-	$('#searchBtn').click(function() {
-		alert($('#search').val());
-		
-	})
-
 	$('#logOut').click(function() {
 		$.ajax({
 	        method: "POST",

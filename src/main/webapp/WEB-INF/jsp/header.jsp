@@ -22,6 +22,10 @@
 <script src="/resources/js/bootstrap/popper.min.js"></script>
 <!-- Bootstrap js -->
 <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+<!-- SUMMER NOTE -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/lang/summernote-ko-KR.js"></script>
 <!-- Common JS -->
 <script src="/resources/js/use/common.js"></script>
 </head>
