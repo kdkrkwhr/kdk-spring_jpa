@@ -71,7 +71,7 @@ public class BoardController {
 		if (reqBody == null) {
 			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
-		System.out.println("req : " + reqBody.getSubject());
+
 		try {
 			LocalDateTime date = LocalDateTime.now();
 			boardRepository.save(

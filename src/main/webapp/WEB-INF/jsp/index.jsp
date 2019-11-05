@@ -35,7 +35,7 @@
 					<h2>
 						<span class="counter">${newBoardCnt }</span>
 					</h2>
-					<h5>신규 스터디</h5>
+					<h5>오늘 등록된 스터디</h5>
 				</div>
 			</div>
 

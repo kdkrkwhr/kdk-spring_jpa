@@ -49,7 +49,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    content," + 
 			"    CASE" + 
 			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" + 
-			"	   WHEN board_cat = 'art' THEN 'ART & DESIGN' END AS board_cat," + 
+			"	   WHEN board_cat = 'ART' THEN 'ART & DESIGN' END AS board_cat," + 
 			"    member_no," + 
 			"    total_person_cnt," + 
 			"	 communication," + 

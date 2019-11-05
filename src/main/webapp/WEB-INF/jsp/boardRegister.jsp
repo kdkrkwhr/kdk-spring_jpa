@@ -37,7 +37,7 @@ location.href = '/login';
 									<div class="col-12 col-lg-2">
 										<div class="form-group">
 											<strong>분야</strong>
-											<select name="boardCat" id="boardCat" style="height:40px; width: 100%;">
+											<select class="form-control" name="boardCat" id="boardCat" style="height:40px; width: 100%;">
 												<option value="IT" selected="selected">IT & SOFTWARE</option>
 												<option value="ART">ART & DESIGN</option>
 												<option value="BUSUNESS">BUSUNESS</option>
@@ -49,7 +49,7 @@ location.href = '/login';
 									<div class="col-12 col-lg-2">
 										<div class="form-group">
 											<strong>인원</strong>
-											<select name="totalPersonCnt" id="totalPersonCnt" style="height:40px; width: 100%;">
+											<select class="form-control" name="totalPersonCnt" id="totalPersonCnt" style="height:40px; width: 100%;">
 												<option value="1" selected="selected">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -71,10 +71,10 @@ location.href = '/login';
 										</div>
 									</div>
 									<div class="col-12 col-lg-12">
-										<textarea name="content" id="content"></textarea>
+										<textarea name="content" id="content" class="form-control"></textarea>
 									</div>
-									<div class="col-12" style="padding-top: 10px;">
-										<button class="btn clever-btn w-100" id="registerBtn" name="registerBtn">게시글 등록</button>
+									<div class="col-12" style="padding-top: 10px;" style="background: rgba(0,123,255,.25);">
+										<input type="button" class="btn w-100" id="registerBtn" name="registerBtn" value="게시글 등록">
 									</div>
 								</div>
 						</div>

@@ -154,7 +154,7 @@ public class MembersController {
 		}
 	}
 
-	@RequestMapping(value = "/api/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/logout", method = RequestMethod.POST)
 	public ResponseEntity<String> logoutMemberApi(HttpSession session, Model model) {
 
 		session.removeAttribute("sessionMember");
