@@ -24,7 +24,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    total_person_cnt," + 
 			"	 communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
-			"    FROM board WHERE board_cat = :boardCat";
+			"    FROM board WHERE board_cat = :boardCat ORDER BY board_no DESC";
 
 	String boardSearchListQuery = 
 			"	 SELECT" + 
@@ -38,9 +38,9 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    total_person_cnt," + 
 			"	 communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
-			"	 FROM board " +
+			"	 FROM board " + 
 			"	 WHERE subject like '%:searchVal%' " +
-			"	 OR content like '%:searchVal%'";
+			"	 OR content like '%:searchVal%' ORDER BY board_no DESC";
 
 	String mainBoardListQuery = 
 			"	 SELECT" + 
@@ -54,7 +54,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    total_person_cnt," + 
 			"	 communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
-			"	 FROM board LIMIT 3";
+			"	 FROM board ORDER BY board_no DESC LIMIT 3";
 
 	String mainBoardCntQuery = 
 			"	SELECT COUNT(board_no) FROM board WHERE reg_date > CONCAT(CURDATE(), ' ', CURTIME())" + 

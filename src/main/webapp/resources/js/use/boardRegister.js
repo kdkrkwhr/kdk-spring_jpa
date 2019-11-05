@@ -1,5 +1,5 @@
 /**
- * COMMON
+ * BOARD REGISTER
  */
 
 $().ready(function() {
@@ -13,4 +13,23 @@ $().ready(function() {
 
 	$('.note-icon-trash').trigger('click');
 
+	$('#registerBtn').click(function() {
+		$.ajax({
+	        method: "POST",
+	        url: "board/api/register",
+	        data: JSON.stringify({
+	            subject: $('#subject').val(),
+	            content: $('#content').val(),
+	            boardCat: $('#boardCat').val(),
+	            memberNo: $('#memberNo').val(),
+	            totalPersonCnt : $('select[name=totalPersonCnt]').val(),
+	            communication : $('#communication').val()
+	        }),
+	        contentType: "application/json; charset=utf-8",
+	        success: function() {
+	        	alert("게시물이 등록 되었습니다.");
+	        	location.href = "/";
+	        }
+	    });
+	});
 })

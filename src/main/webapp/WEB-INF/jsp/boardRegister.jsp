@@ -26,7 +26,6 @@ location.href = '/login';
 					<div class="col-12">
 						<div class="forms">
 							<h4>게시글 등록</h4>
-							<form action="#" method="post">
 								<div class="row">
 									<div class="col-12 col-lg-12">
 										<div class="form-group">
@@ -46,10 +45,11 @@ location.href = '/login';
 											</select>
 										</div>
 									</div>
+									<input type=hidden id="memberNo" name="memberNo" value="${sessionMember.no }"/>
 									<div class="col-12 col-lg-2">
 										<div class="form-group">
 											<strong>인원</strong>
-											<select name="memberNo" id="memberNo" style="height:40px; width: 100%;">
+											<select name="totalPersonCnt" id="totalPersonCnt" style="height:40px; width: 100%;">
 												<option value="1" selected="selected">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -74,10 +74,9 @@ location.href = '/login';
 										<textarea name="content" id="content"></textarea>
 									</div>
 									<div class="col-12" style="padding-top: 10px;">
-										<button class="btn clever-btn w-100">게시글 등록</button>
+										<button class="btn clever-btn w-100" id="registerBtn" name="registerBtn">게시글 등록</button>
 									</div>
 								</div>
-							</form>
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,15 +65,15 @@ public class BoardController {
 	}
 
 	// 게시물 등록
-	@RequestMapping(value = "/api/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/register", method = RequestMethod.POST)
 	public ResponseEntity<String> addBoardApi(@RequestBody Board reqBody) {
 
 		if (reqBody == null) {
 			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
 		}
-
+		System.out.println("req : " + reqBody.getSubject());
 		try {
-
+			LocalDateTime date = LocalDateTime.now();
 			boardRepository.save(
 					Board.builder()
 					.subject(reqBody.getSubject())
@@ -79,6 +81,7 @@ public class BoardController {
 					.boardCat(reqBody.getBoardCat())
 					.memberNo(reqBody.getMemberNo())
 					.totalPersonCnt(reqBody.getTotalPersonCnt())
+					.regDate(date.toString())
 					.communication(reqBody.getCommunication())
 					.build());
 

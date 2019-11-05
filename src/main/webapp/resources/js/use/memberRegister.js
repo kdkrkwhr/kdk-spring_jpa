@@ -1,5 +1,5 @@
 /**
- * MEMBER INSERT
+ * MEMBER REGISTER
  */
 
 var pageUrl = window.location.hostname;
@@ -7,7 +7,7 @@ $().ready(function() {
 	$('#registerBtn').click(function() {
 		$.ajax({
 	        method: "POST",
-	        url: "members/api/add",
+	        url: "members/api/register",
 	        data: JSON.stringify({
 	            email: $('#email').val(),
 	            pwd: $('#pwd').val(),

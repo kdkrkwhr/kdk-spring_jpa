@@ -63,13 +63,13 @@ public class MembersController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/api/add", method = RequestMethod.POST)
-	public ResponseEntity<String> addMemberApi(@RequestBody Members reqBody) {
+	@RequestMapping(value = "/api/register", method = RequestMethod.POST, produces="application/json")
+	public String addMemberApi(@RequestBody Members reqBody) {
 
 		if ((reqBody.getEmail() == null) || (reqBody.getPwd() == null) || (reqBody.getName() == null)
 				|| (reqBody.getPhone() == null) || (reqBody.getAddress() == null)) {
 
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
+			return "";
 		}
 
 		try {
@@ -79,10 +79,10 @@ public class MembersController {
 
 		} catch (Exception e) {
 
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
+			return "";
 		}
 
-		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+		return "boardList";
 	}
 
 	@RequestMapping(value = "/api/edit/{no}", method = RequestMethod.PUT)

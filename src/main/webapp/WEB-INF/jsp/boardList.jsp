@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="load-more text-center wow fadeInUp" data-wow-delay="1000ms">
-                        <a href="/insert" class="btn clever-btn btn-2">게시물 등록</a>
+                        <a href="/boardRegister" class="btn clever-btn btn-2">게시물 등록</a>
                     </div>
                 </div>
             </div>
