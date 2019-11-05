@@ -86,7 +86,7 @@ location.href = '/login';
 	</div>
 </section>
 
-<script src="/resources/js/use/insert.js"></script>
+<script src="/resources/js/use/boardRegister.js"></script>
 
 <!-- ##### Footer Area Start ##### -->
 <%@ include file="./footer.jsp"%>

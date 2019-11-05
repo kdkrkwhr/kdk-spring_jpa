@@ -47,7 +47,7 @@ public class PageController {
 
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String boardInsertPage() {
-		return "boardDetail";
+		return "boardRegister";
 	}
 
 	@RequestMapping(value = "/view", method = RequestMethod.GET)

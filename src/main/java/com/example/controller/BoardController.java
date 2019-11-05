@@ -50,9 +50,9 @@ public class BoardController {
 			boardCat = "BUSINESS";
 		} else if (boardCat.equalsIgnoreCase("LANGUAGE")) {
 			boardCat = "LANGUAGE";
-		} else if (boardCat.equalsIgnoreCase("reply")) {
+		} else if (boardCat.equalsIgnoreCase("REPLY")) {
 			boardCat = "스터디 후기";
-		} else if (boardCat.equalsIgnoreCase("store")) {
+		} else if (boardCat.equalsIgnoreCase("STORE")) {
 			boardCat = "자료실";
 		}
 

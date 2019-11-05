@@ -89,7 +89,7 @@
 	</div>
 </div>
 
-<script src="/resources/js/use/register.js"></script>
+<script src="/resources/js/use/memberRegister.js"></script>
 
 <!-- ##### Footer Area Start ##### -->
 <%@ include file="./footer.jsp"%>

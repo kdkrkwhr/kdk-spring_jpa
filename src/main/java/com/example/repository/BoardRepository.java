@@ -57,7 +57,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"	 FROM board LIMIT 3";
 
 	String mainBoardCntQuery = 
-			"	SELECT COUNT(board_no) FROM board WHERE reg_date = CURDATE()" + 
+			"	SELECT COUNT(board_no) FROM board WHERE reg_date > CONCAT(CURDATE(), ' ', CURTIME())" + 
 			"	UNION ALL" + 
 			"	SELECT COUNT(board_no) FROM board WHERE reg_date > DATE_ADD(NOW(), INTERVAL -7 DAY)" + 
 			"	UNION ALL" + 
