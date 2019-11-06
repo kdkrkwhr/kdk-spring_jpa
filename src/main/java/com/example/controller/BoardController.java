@@ -73,6 +73,7 @@ public class BoardController {
 		}
 
 		try {
+
 			LocalDateTime date = LocalDateTime.now();
 			boardRepository.save(
 					Board.builder()
