@@ -2,7 +2,7 @@
  * COMMON
  */
 var pageUrl = window.location.hostname;
-
+pageUrl = "http://" + pageUrl + ":8888/";
 function boardDetailAction(boardNo) {
 	alert(boardNo);
 	location.href = "/board/view/" + boardNo;
@@ -12,7 +12,7 @@ function boardDeleteAction(boardNo) {
 	console.log('dd');
 	$.ajax({
         method: "DELETE",
-        url: "http://" + pageUrl + ":8888/board/api/delete/" + boardNo,
+        url: pageUrl + "board/api/delete/" + boardNo,
         success: function() {
         	alert('게시글이 지워졌습니다.');
         	location.reload();
@@ -28,7 +28,7 @@ $().ready(function() {
 	$('#logOut').click(function() {
 		$.ajax({
 	        method: "POST",
-	        url: "http://" + pageUrl + ":8888/members/api/logout",
+	        url: pageUrl + "members/api/logout",
 	        success: function() {
 	        	alert('로그아웃 되셨습니다.');
 	        	location.reload();

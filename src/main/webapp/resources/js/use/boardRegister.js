@@ -22,7 +22,7 @@ $().ready(function() {
 	$('#registerBtn').click(function() {
 		$.ajax({
 			method : "POST",
-			url : "http://" + pageUrl + ":8888/board/api/register",
+			url : pageUrl + "board/api/register",
 			data : JSON.stringify({
 				subject : $('#subject').val(),
 				content : $('#content').val(),

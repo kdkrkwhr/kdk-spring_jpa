@@ -37,7 +37,7 @@ public class PageController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerPage() {
-		return "register";
+		return "memberRegister";
 	}
 
 	@RequestMapping(value = "/location", method = RequestMethod.GET)

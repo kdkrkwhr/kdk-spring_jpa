@@ -22,9 +22,13 @@
 <!-- Bootstrap js -->
 <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
 <!-- SUMMER NOTE -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/lang/summernote-ko-KR.js"></script>
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/lang/summernote-ko-KR.js"></script>
 <!-- Common JS -->
 <script src="/resources/js/use/common.js"></script>
 </head>
@@ -110,7 +114,7 @@
 												aria-expanded="false">${sessionMember.name  }</a>
 											<div class="dropdown-menu dropdown-menu-right"
 												aria-labelledby="userName">
-												<a class="dropdown-item" id="userProfile" href="/profile">Profile</a> 
+												<a class="dropdown-item" id="userProfile" href="/profile">Profile</a>
 												<a class="dropdown-item" id="logOut" href="#">Logout</a>
 											</div>
 										</div>
@@ -120,14 +124,14 @@
 
 							<c:if test="${empty sessionMember }">
 								<div class="register-login-area">
-									<a href="/register" class="btn">회원가입</a> <a href="/login" class="btn">로그인</a>
+									<a href="/register" class="btn">회원가입</a> <a href="/login"
+										class="btn">로그인</a>
 								</div>
 							</c:if>
 						</div>
 					</div>
 					<!-- Nav End -->
+				</nav>
 			</div>
-			</nav>
-		</div>
 		</div>
 	</header>

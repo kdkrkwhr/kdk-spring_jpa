@@ -2,12 +2,11 @@
  * MEMBER REGISTER
  */
 
-var pageUrl = window.location.hostname;
 $().ready(function() {
 	$('#registerBtn').click(function() {
 		$.ajax({
 	        method: "POST",
-	        url: "http://" + pageUrl + ":8888/members/api/register",
+	        url: pageUrl + "members/api/register",
 	        data: JSON.stringify({
 	            email: $('#email').val(),
 	            pwd: $('#pwd').val(),
