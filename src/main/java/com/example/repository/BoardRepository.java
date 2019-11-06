@@ -13,55 +13,55 @@ import com.example.model.Board;
 public interface BoardRepository extends JpaRepository<Board, Integer> {
 
 	String boardListQuery = 
-			"	 SELECT" +
-			"	 board_no," + 
-			"	 subject," + 
+			"    SELECT" +
+			"    board_no," + 
+			"    subject," + 
 			"    content," + 
 			"    CASE" +
 			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" +
-			"	   WHEN board_cat = 'art' THEN 'ART & DESIGN' END AS board_cat," +
+			"      WHEN board_cat = 'art' THEN 'ART & DESIGN' END AS board_cat," +
 			"    member_no," + 
 			"    total_person_cnt," + 
-			"	 communication," + 
+			"    communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
 			"    FROM board WHERE board_cat = :boardCat ORDER BY board_no DESC";
 
 	String boardSearchListQuery = 
-			"	 SELECT" + 
-			"	 board_no," + 
-			"	 subject," + 
+			"    SELECT" + 
+			"    board_no," + 
+			"    subject," + 
 			"    content," + 
 			"    CASE" + 
 			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" + 
-			"	   WHEN board_cat = 'art' THEN 'ART & DESIGN' END AS board_cat," + 
+			"      WHEN board_cat = 'art' THEN 'ART & DESIGN' END AS board_cat," + 
 			"    member_no," + 
 			"    total_person_cnt," + 
-			"	 communication," + 
+			"    communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
-			"	 FROM board " + 
-			"	 WHERE subject like '%:searchVal%' " +
-			"	 OR content like '%:searchVal%' ORDER BY board_no DESC";
+			"    FROM board " + 
+			"    WHERE subject like '%:searchVal%' " +
+			"    OR content like '%:searchVal%' ORDER BY board_no DESC";
 
 	String mainBoardListQuery = 
-			"	 SELECT" + 
-			"	 board_no," + 
-			"	 subject," + 
+			"    SELECT" + 
+			"    board_no," + 
+			"    subject," + 
 			"    content," + 
 			"    CASE" + 
 			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" + 
-			"	   WHEN board_cat = 'ART' THEN 'ART & DESIGN' END AS board_cat," + 
+			"      WHEN board_cat = 'ART' THEN 'ART & DESIGN' END AS board_cat," + 
 			"    member_no," + 
 			"    total_person_cnt," + 
-			"	 communication," + 
+			"    communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
-			"	 FROM board ORDER BY board_no DESC LIMIT 3";
+			"    FROM board ORDER BY board_no DESC LIMIT 3";
 
 	String mainBoardCntQuery = 
-			"	SELECT COUNT(board_no) FROM board WHERE reg_date > CONCAT(CURDATE(), ' ', CURTIME())" + 
-			"	UNION ALL" + 
-			"	SELECT COUNT(board_no) FROM board WHERE reg_date > DATE_ADD(NOW(), INTERVAL -7 DAY)" + 
-			"	UNION ALL" + 
-			"	SELECT COUNT(board_no) FROM board";
+			"    SELECT COUNT(board_no) FROM board WHERE reg_date > CONCAT(CURDATE(), ' ', CURTIME())" + 
+			"    UNION ALL" + 
+			"    SELECT COUNT(board_no) FROM board WHERE reg_date > DATE_ADD(NOW(), INTERVAL -7 DAY)" + 
+			"    UNION ALL" + 
+			"    SELECT COUNT(board_no) FROM board";
 
 	@Query(value = boardListQuery, nativeQuery = true)
 	List<Board> boardList(@Param("boardCat") String boardCat);
