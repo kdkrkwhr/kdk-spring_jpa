@@ -54,4 +54,9 @@ public class PageController {
 	public String boardViewPage() {
 		return "boardView";
 	}
+
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public String memberProfilePage() {
+		return "memberProfile";
+	}
 }

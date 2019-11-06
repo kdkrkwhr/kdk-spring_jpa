@@ -3,6 +3,7 @@
  */
 
 $().ready(function() {
+	alert(pageUrl);
 	$('#content').summernote({
 		height : 300,
 		lang : 'ko-KR',
@@ -21,7 +22,7 @@ $().ready(function() {
 	$('#registerBtn').click(function() {
 		$.ajax({
 			method : "POST",
-			url : "board/api/register",
+			url : "http://" + pageUrl + ":8888/board/api/register",
 			data : JSON.stringify({
 				subject : $('#subject').val(),
 				content : $('#content').val(),

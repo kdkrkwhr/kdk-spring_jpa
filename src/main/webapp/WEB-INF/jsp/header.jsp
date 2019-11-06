@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
 <!-- Title -->
 <title>Study Meeting</title>
 <!-- Favicon -->
@@ -111,7 +110,7 @@
 												aria-expanded="false">${sessionMember.name  }</a>
 											<div class="dropdown-menu dropdown-menu-right"
 												aria-labelledby="userName">
-												<a class="dropdown-item" href="#" class="common-sns">Profile</a> 
+												<a class="dropdown-item" id="userProfile" href="/profile">Profile</a> 
 												<a class="dropdown-item" id="logOut" href="#">Logout</a>
 											</div>
 										</div>

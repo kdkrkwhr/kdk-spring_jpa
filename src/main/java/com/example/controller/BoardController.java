@@ -97,7 +97,7 @@ public class BoardController {
 	@RequestMapping(value = "/api/delete/{boardNo}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteBoardApi(@PathVariable int boardNo) {
 
-		try { 
+		try {
 
 			boardRepository.deleteById(boardNo);
 

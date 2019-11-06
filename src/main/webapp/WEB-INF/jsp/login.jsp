@@ -72,8 +72,6 @@
 	</div>
 </div>
 
-<script src="/resources/js/use/login.js"></script>
-
 <!-- ##### Footer Area Start ##### -->
 <%@ include file="./footer.jsp"%>
 <!-- ##### Footer Area End ##### -->
