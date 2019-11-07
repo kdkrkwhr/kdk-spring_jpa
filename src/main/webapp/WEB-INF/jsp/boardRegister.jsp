@@ -5,6 +5,8 @@
 <%@ include file="./header.jsp"%>
 <!-- ##### Header Area End ##### -->
 
+<script src="/resources/js/use/boardRegister.js"></script>
+
 <c:if test="${empty sessionMember }">
 <script>
 alert("로그인 후 게시글 작성이 가능합니다.");
@@ -84,8 +86,6 @@ location.href = '/login';
 		</div>
 	</div>
 </section>
-
-<script src="/resources/js/use/boardRegister.js"></script>
 
 <!-- ##### Footer Area Start ##### -->
 <%@ include file="./footer.jsp"%>

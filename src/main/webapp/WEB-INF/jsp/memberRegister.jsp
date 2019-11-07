@@ -35,6 +35,7 @@
 <script src="/resources/login/vendor/daterangepicker/daterangepicker.js"></script>
 <script src="/resources/login/vendor/countdowntime/countdowntime.js"></script>
 <script src="/resources/login/js/main.js"></script>
+<script src="/resources/js/use/memberRegister.js"></script>
 
 <div class="limiter">
 	<div class="container-login100" style="min-height: 90vh">
@@ -88,8 +89,6 @@
 		</div>
 	</div>
 </div>
-
-<script src="/resources/js/use/memberRegister.js"></script>
 
 <!-- ##### Footer Area Start ##### -->
 <%@ include file="./footer.jsp"%>

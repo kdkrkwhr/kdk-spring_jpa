@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +62,7 @@
 
 					<!-- Logo -->
 					<a class="nav-brand" href="/"><img
-						src="/resources/img/core-img/k_logo2.png" alt=""></a>
+						src="/resources/img/core-img/k_logo2.png"></a>
 
 					<!-- Navbar Toggler -->
 					<div class="classy-navbar-toggler">

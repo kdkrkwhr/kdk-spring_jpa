@@ -148,7 +148,6 @@ public class MembersController {
 		} else {
 
 			session.setAttribute("sessionMember", member);
-			model.addAttribute("alt","<script>alert('환영합니다.');</script>");
 			model.addAttribute("success", "/");
 			return "login";
 		}

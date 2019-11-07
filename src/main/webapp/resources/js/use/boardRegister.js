@@ -3,7 +3,6 @@
  */
 
 $().ready(function() {
-	alert(pageUrl);
 	$('#content').summernote({
 		height : 300,
 		lang : 'ko-KR',
