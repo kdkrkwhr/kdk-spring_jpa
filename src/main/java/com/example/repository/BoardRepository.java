@@ -21,6 +21,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" +
 			"      WHEN board_cat = 'art' THEN 'ART & DESIGN' END AS board_cat," +
 			"    member_no," + 
+			"    (SELECT name FROM members WHERE no = member_no) AS member_name," + 
 			"    total_person_cnt," + 
 			"    communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
@@ -35,6 +36,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" + 
 			"      WHEN board_cat = 'art' THEN 'ART & DESIGN' END AS board_cat," + 
 			"    member_no," + 
+			"    (SELECT name FROM members WHERE no = member_no) AS member_name," + 
 			"    total_person_cnt," + 
 			"    communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
@@ -50,7 +52,8 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    CASE" + 
 			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" + 
 			"      WHEN board_cat = 'ART' THEN 'ART & DESIGN' END AS board_cat," + 
-			"    member_no," + 
+			"    member_no," +
+			"    (SELECT name FROM members WHERE no = member_no) AS member_name," + 
 			"    total_person_cnt," + 
 			"    communication," + 
 			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 

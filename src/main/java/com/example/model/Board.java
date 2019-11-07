@@ -1,7 +1,5 @@
 package com.example.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +31,7 @@ public class Board {
 	private int totalPersonCnt;
 	private String communication;
 	private String regDate;
+	private String memberName;
 
 	@Builder
 	public Board(String subject, String content, String boardCat, int memberNo, int totalPersonCnt, String communication, String regDate) {

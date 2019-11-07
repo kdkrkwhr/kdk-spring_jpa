@@ -94,7 +94,7 @@
 						<div class="course-content">
 							<h4>${board.subject }</h4>
 							<div class="meta d-flex align-items-center">
-								<a href="#">${board.memberNo }</a> <span><i class="fa fa-circle"
+								<a href="#">${board.memberName }</a> <span><i class="fa fa-circle"
 									aria-hidden="true"></i></span> <a href="#">${board.boardCat }</a>
 							</div>
 							<p style="height: 200px;overflow:auto;">

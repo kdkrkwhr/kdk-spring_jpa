@@ -57,7 +57,7 @@
 									onclick="boardDetailAction(${board.boardNo});">${board.subject }</span>
 							</h4>
 							<div class="meta d-flex align-items-center">
-								<a href="#">${board.memberNo }</a> <span><i
+								<a href="#">${board.memberName }</a> <span><i
 									class="fa fa-circle" aria-hidden="true"></i></span> <a href="#">${board.boardCat }</a>
 							</div>
 							<p style="height: 50px; overflow: auto;">${board.content }</p>
