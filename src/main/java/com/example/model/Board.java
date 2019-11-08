@@ -31,6 +31,8 @@ public class Board {
 	private int totalPersonCnt;
 	private String communication;
 	private String regDate;
+
+	@Column(insertable=false, updatable=false)
 	private String memberName;
 
 	@Builder

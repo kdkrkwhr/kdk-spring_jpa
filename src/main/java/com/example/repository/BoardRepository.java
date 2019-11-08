@@ -66,6 +66,22 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    UNION ALL" + 
 			"    SELECT COUNT(board_no) FROM board";
 
+	String detailBoardQuery = 
+			"    SELECT" + 
+			"    board_no," + 
+			"    subject," + 
+			"    content," + 
+			"    CASE" + 
+			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" + 
+			"      WHEN board_cat = 'ART' THEN 'ART & DESIGN' END AS board_cat," + 
+			"    member_no," +
+			"    (SELECT name FROM members WHERE no = member_no) AS member_name," + 
+			"    total_person_cnt," + 
+			"    communication," + 
+			"    date_format(reg_date, '%Y-%m-%d %T') AS reg_date" + 
+			"    FROM board " + 
+			"    WHERE board_no = :boardNo";
+
 	@Query(value = boardListQuery, nativeQuery = true)
 	List<Board> boardList(@Param("boardCat") String boardCat);
 
@@ -78,4 +94,6 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	@Query(value = mainBoardCntQuery, nativeQuery = true)
 	List<Integer> mainBoardCnt();
 
+	@Query(value = detailBoardQuery, nativeQuery = true)
+	Board boardDetail(@Param("boardNo") int boardNo);
 }

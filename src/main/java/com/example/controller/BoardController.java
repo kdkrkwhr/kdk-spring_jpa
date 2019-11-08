@@ -32,10 +32,13 @@ public class BoardController {
 	@RequestMapping(value = "/view/{boardNo}", method = RequestMethod.GET)
 	public String getBoard(@PathVariable("boardNo") int boardNo, Model model) {
 
-		Board board = boardRepository.findById(boardNo).get();
-		model.addAttribute("board", board);
+		Board board = boardRepository.boardDetail(boardNo);
 
-		return "boardDetail";
+		model.addAttribute("board", board);
+		model.addAttribute("cn", "게시물 수정");
+		model.addAttribute("btnType", "updateBtn");
+
+		return "boardRegister";
 	}
 
 	// 해당 카테고리 게시물 전체 조회
@@ -87,8 +90,7 @@ public class BoardController {
 					.build());
 
 		} catch(Exception e) {
-
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
@@ -102,8 +104,7 @@ public class BoardController {
 			boardRepository.deleteById(boardNo);
 
 		} catch (Exception e) {
-
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);

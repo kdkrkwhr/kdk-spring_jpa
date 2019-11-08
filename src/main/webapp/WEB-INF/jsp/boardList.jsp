@@ -53,8 +53,7 @@
 						<!-- Course Content -->
 						<div class="course-content">
 							<h4>
-								<span style="cursor: pointer;"
-									onclick="boardDetailAction(${board.boardNo});">${board.subject }</span>
+								<span style="cursor: pointer;">${board.subject }</span>
 							</h4>
 							<div class="meta d-flex align-items-center">
 								<a href="#">${board.memberName }</a> <span><i
@@ -76,6 +75,9 @@
 							<c:if test="${sessionMember.no eq board.memberNo }">
 								<div class="seat-rating h-100 d-flex align-items-center"
 									style="cursor: pointer;">
+									<div onclick="boardDetailAction(${board.boardNo});">
+										<span>수정</span>
+									</div>
 									<div onclick="boardDeleteAction(${board.boardNo});">
 										<span>삭제</span>
 									</div>

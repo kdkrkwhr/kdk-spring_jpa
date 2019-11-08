@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.model.Members;
-import com.example.repository.BoardRepository;
 import com.example.repository.MembersRepository;
 
 @Controller
@@ -78,8 +77,7 @@ public class MembersController {
 					.name(reqBody.getName()).phone(reqBody.getPhone()).address(reqBody.getAddress()).build());
 
 		} catch (Exception e) {
-
-			return "";
+			return e.getMessage();
 		}
 
 		return "boardList";
@@ -105,8 +103,7 @@ public class MembersController {
 			membersRepository.save(membersModel);
 
 		} catch (Exception e) {
-
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
@@ -121,7 +118,7 @@ public class MembersController {
 
 		} catch (Exception e) {
 
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);

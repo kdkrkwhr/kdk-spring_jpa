@@ -37,4 +37,8 @@ $().ready(function() {
 			}
 		});
 	});
+
+	$('#updateBtn').click(function() {
+		alert("update");
+	})
 })

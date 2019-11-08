@@ -3,7 +3,6 @@
  */
 
 function boardDetailAction(boardNo) {
-	alert(boardNo);
 	location.href = "/board/view/" + boardNo;
 }
 

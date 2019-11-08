@@ -46,13 +46,12 @@ public class PageController {
 	}
 
 	@RequestMapping(value = "/boardRegister", method = RequestMethod.GET)
-	public String boardInsertPage() {
-		return "boardRegister";
-	}
+	public String boardInsertPage(Model model) {
 
-	@RequestMapping(value = "/view", method = RequestMethod.GET)
-	public String boardViewPage() {
-		return "boardView";
+		model.addAttribute("cn", "게시물 등록");
+		model.addAttribute("btnType", "registerBtn");
+
+		return "boardRegister";
 	}
 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
