@@ -69,7 +69,7 @@ location.href = '/login';
 										<strong>인원</strong> <select class="form-control"
 											name="totalPersonCnt" id="totalPersonCnt"
 											style="height: 40px; width: 100%;">
-											<option value="1" <c:if test="${board.totalPersonCnt eq 1 }">selected="selected"</c:if>> 1</option>
+											<option value="1" <c:if test="${board.totalPersonCnt eq 1 || board.totalPersonCnt eq null }">selected="selected"</c:if>> 1</option>
 											<option value="2" <c:if test="${board.totalPersonCnt eq 2 }">selected="selected"</c:if>>2</option>
 											<option value="3" <c:if test="${board.totalPersonCnt eq 3 }">selected="selected"</c:if>>3</option>
 											<option value="4" <c:if test="${board.totalPersonCnt eq 4 }">selected="selected"</c:if>>4</option>
