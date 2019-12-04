@@ -16,6 +16,7 @@ Kim Dong-gi
 
 ### **Front End**     
 + jQuery  
++ Ajax  
 + Summernote Editor  
 
 ### **Tool**  
