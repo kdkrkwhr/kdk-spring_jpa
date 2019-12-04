@@ -95,11 +95,13 @@ public class MembersController {
 		try {
 
 			Members membersModel = membersRepository.findById(no).get();
+
 			membersModel.setEmail(reqBody.getEmail());
 			membersModel.setPwd(reqBody.getPwd());
 			membersModel.setName(reqBody.getName());
 			membersModel.setPhone(reqBody.getPhone());
 			membersModel.setAddress(reqBody.getAddress());
+
 			membersRepository.save(membersModel);
 
 		} catch (Exception e) {
