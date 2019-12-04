@@ -15,7 +15,8 @@ Kim Dong-gi
 + JPA (ORM)   
 
 ### **Front End**     
-+ jQuery
++ jQuery  
++ Summernote Editor  
 
 ### **Tool**  
 + STS(Spring Tool Suite) v3.9.8
