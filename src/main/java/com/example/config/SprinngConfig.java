@@ -34,13 +34,13 @@ public class SprinngConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				// 페이지 권한 설정
-				.antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/user/myinfo").hasRole("MEMBER")
+				.antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/members/myinfo").hasRole("MEMBER")
 				.antMatchers("/**").permitAll().and() // 로그인 설정
-				.formLogin().loginPage("/user/login").defaultSuccessUrl("/user/login/result").permitAll().and() // 로그아웃
-				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-				.logoutSuccessUrl("/user/logout/result").invalidateHttpSession(true).and()
+				.formLogin().loginPage("/members/api/login").defaultSuccessUrl("/members/api/login").permitAll().and() // 로그아웃
+				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/members/api/logout"))
+				.logoutSuccessUrl("/members/api/logout").invalidateHttpSession(true).and()
 				// 403 예외처리 핸들링
-				.exceptionHandling().accessDeniedPage("/user/denied");
+				.exceptionHandling().accessDeniedPage("/members/"); // 생성 예정
 	}
 
 	/*
