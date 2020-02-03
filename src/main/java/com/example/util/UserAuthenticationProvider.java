@@ -25,9 +25,6 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 		String email = authentication.getName();
 		String password = (String) authentication.getCredentials();
 
-		System.out.println("email : " + email);
-		System.out.println("password : " + password);
-
 		Members member = userService.memberLogin(email, password);
 		if (member == null) {
 			throw new BadCredentialsException("Login Error !!");
