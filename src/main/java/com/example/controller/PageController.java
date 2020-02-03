@@ -32,7 +32,7 @@ public class PageController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
-		return "login";
+		return "login2";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
