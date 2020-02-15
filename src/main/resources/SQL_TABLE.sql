@@ -3,6 +3,7 @@ CREATE TABLE `board` (
   `board_no` int(11) NOT NULL,
   `subject` varchar(50) DEFAULT NULL,
   `content` varchar(2000) DEFAULT NULL,
+  `board_cat` varchar(30) DEFAULT NULL,
   `member_no` int(11) DEFAULT NULL,
   `total_person_cnt` varchar(45) DEFAULT NULL,
   `communication` varchar(200) DEFAULT NULL,
