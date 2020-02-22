@@ -1,9 +1,13 @@
 package com.example.model;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.security.core.GrantedAuthority;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +29,8 @@ public class Members {
 	private String name;
 	private String phone;
 	private String address;
+
+	private Collection<? extends GrantedAuthority> authorities;
 
 	@Builder
 	public Members(String email, String pwd, String name, String phone, String address) {

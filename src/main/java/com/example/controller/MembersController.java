@@ -146,7 +146,7 @@ public class MembersController {
 			return "login";
 		} else {
 
-			session.setAttribute("sessionMember", member);
+			session.setAttribute("member", member);
 			model.addAttribute("success", "/");
 			return "login";
 		}
@@ -155,7 +155,7 @@ public class MembersController {
 	@RequestMapping(value = "/api/logout", method = RequestMethod.POST)
 	public ResponseEntity<String> logoutMemberApi(HttpSession session, Model model) {
 
-		session.removeAttribute("sessionMember");
+		session.removeAttribute("member");
 		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 	}
 

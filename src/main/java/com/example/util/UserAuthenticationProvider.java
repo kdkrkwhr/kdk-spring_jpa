@@ -3,12 +3,14 @@ package com.example.util;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
 import com.example.model.Members;
@@ -35,6 +37,11 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 		ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		return new UsernamePasswordAuthenticationToken(member, null, authorities);
+	}
+
+	@Bean
+	public AuthenticationSuccessHandler successHandler() {
+		return new CustomLoginSuccessHandler("/");
 	}
 
 	@Override
