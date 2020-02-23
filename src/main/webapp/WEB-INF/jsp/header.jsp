@@ -106,7 +106,7 @@
 								</form>
 							</div>
 
-							<c:if test="${not empty sessionMember }">
+							<c:if test="${not empty member }">
 								<div class="login-state d-flex align-items-center">
 									<div class="user-name mr-30">
 										<div class="dropdown">
@@ -123,7 +123,7 @@
 								</div>
 							</c:if>
 
-							<c:if test="${empty sessionMember }">
+							<c:if test="${empty member }">
 								<div class="register-login-area">
 									<a href="/register" class="btn">회원가입</a> <a href="/login"
 										class="btn">로그인</a>
