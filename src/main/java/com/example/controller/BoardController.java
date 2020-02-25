@@ -69,10 +69,12 @@ public class BoardController {
 
 	// 게시물 등록
 	@RequestMapping(value = "/api/register", method = RequestMethod.POST)
-	public ResponseEntity<String> addBoardApi(@RequestBody Board reqBody) {
+	public ResponseEntity<Board> addBoardApi(@RequestBody Board reqBody) {
 
 		if (reqBody == null) {
-			return new ResponseEntity<>(NO_VALUE_ERROR, HttpStatus.NOT_FOUND);
+			reqBody = new Board();
+			reqBody.setApiMessage(NO_VALUE_ERROR);
+			return new ResponseEntity<>(reqBody, HttpStatus.NOT_FOUND);
 		}
 
 		try {
@@ -90,10 +92,12 @@ public class BoardController {
 					.build());
 
 		} catch(Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+			reqBody.setApiMessage(e.getMessage());
+			return new ResponseEntity<>(reqBody, HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+		reqBody.setApiMessage(SUCCESS);
+		return new ResponseEntity<>(reqBody, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/api/delete/{boardNo}", method = RequestMethod.DELETE)
