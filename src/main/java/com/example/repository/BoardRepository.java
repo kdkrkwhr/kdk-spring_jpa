@@ -50,7 +50,7 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 			"    subject," + 
 			"    content," + 
 			"    CASE" + 
-			"      WHEN board_cat='IT' THEN 'IT & SOFTWARE'" + 
+			"      WHEN board_cat = 'IT' THEN 'IT & SOFTWARE'" + 
 			"      WHEN board_cat = 'ART' THEN 'ART & DESIGN' END AS board_cat," + 
 			"    member_no," +
 			"    (SELECT name FROM members WHERE no = member_no) AS member_name," + 

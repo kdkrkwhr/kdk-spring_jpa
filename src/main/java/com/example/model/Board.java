@@ -35,7 +35,7 @@ public class Board {
 	@Column(insertable=false, updatable=false)
 	private String memberName;
 
-	private String apiMessage;
+//	private String apiMessage;
 
 	@Builder
 	public Board(String subject, String content, String boardCat, int memberNo, int totalPersonCnt, String communication, String regDate) {

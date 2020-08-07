@@ -19,7 +19,7 @@ public class PageController {
 	@RequestMapping(value = "/")
 	public String mainPage(Model model) {
 		List<Board> boardList = boardRepository.mainBoardList();
-
+		
 		List<Integer> boardCntList = boardRepository.mainBoardCnt();
 
 		model.addAttribute("boardList", boardList);
